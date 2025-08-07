@@ -18,19 +18,19 @@ public class ComentarioController {
 
     @GetMapping
     public List<Comentario> listarTodos() {
-        return comentarioRepository.findAll();
+        return this.comentarioRepository.findAll();
     }
 
     @PostMapping
     public Comentario criar(
             @RequestBody Comentario comentario) {
-        return comentarioRepository.save(comentario);
+        return this.comentarioRepository.save(comentario);
     }
 
     @GetMapping("/{id}")
     public Comentario buscarPorId(
             @PathVariable Integer id) {
-        return comentarioRepository.findById(id).get();
+        return this.comentarioRepository.findById(id).get();
     }
 
     @DeleteMapping("/{id}")

@@ -18,19 +18,19 @@ public class PostagemController {
 
     @GetMapping
     public List<Postagem> listarTodas() {
-        return postagemRepository.findAll();
+        return this.postagemRepository.findAll();
     }
 
     @PostMapping
     public Postagem criar(
             @RequestBody Postagem postagem) {
-        return postagemRepository.save(postagem);
+        return this.postagemRepository.save(postagem);
     }
 
     @GetMapping("/{id}")
     public Postagem buscarPorId(
             @PathVariable Integer id) {
-        return postagemRepository.findById(id).get();
+        return this.postagemRepository.findById(id).get();
     }
 
     @DeleteMapping("/{id}")

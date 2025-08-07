@@ -21,7 +21,7 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> listarTodos() {
-        return usuarioRepository.findAll();
+        return this.usuarioRepository.findAll();
     }
 
 
@@ -32,14 +32,23 @@ public class UsuarioController {
         usuario.setNome(dto.getNome());
         usuario.setEmail(dto.getEmail());
         usuario.setDataCadastro(LocalDate.now());
-        return usuarioRepository.save(usuario);
+        return this.usuarioRepository.save(usuario);
     }
+
+
+//    @PostMapping
+//    public Usuario criar(
+//            @RequestBody Usuario usuario) {
+//        usuario.setDataCadastro(LocalDate.now());
+//        this.usuarioRepository.save(usuario);
+//        return usuario;
+//    }
 
 
     @GetMapping("/{id}")
     public Usuario buscarPorId(
             @PathVariable Integer id) {
-        return usuarioRepository.findById(id).get();
+        return this.usuarioRepository.findById(id).get();
     }
 
     @DeleteMapping("/{id}")

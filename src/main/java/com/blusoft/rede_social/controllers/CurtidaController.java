@@ -18,19 +18,19 @@ public class CurtidaController {
 
     @GetMapping
     public List<Curtida> listarTodas() {
-        return curtidaRepository.findAll();
+        return this.curtidaRepository.findAll();
     }
 
     @PostMapping
     public Curtida criar(
             @RequestBody Curtida curtida) {
-        return curtidaRepository.save(curtida);
+        return this.curtidaRepository.save(curtida);
     }
 
     @GetMapping("/{id}")
     public Curtida buscarPorId(
             @PathVariable Integer id) {
-        return curtidaRepository.findById(id).get();
+        return this.curtidaRepository.findById(id).get();
     }
 
     @DeleteMapping("/{id}")
